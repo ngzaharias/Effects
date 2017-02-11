@@ -6,7 +6,7 @@ using UnityEngine;
 public class TargetToLineRenderer : MonoBehaviour
 {
 	public Transform[] targets;
-	private LineRenderer renderer;
+	new private LineRenderer renderer;
 
 	private void OnEnable()
 	{
