@@ -1,12 +1,16 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class Rotate : MonoBehaviour 
-{
-	public Vector3 axis = Vector3.zero;
-	public float speed = 1.0f;
+public class Rotate : MonoBehaviour {
 
-	private void Update() 
-	{
-		transform.Rotate(axis * speed);
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
 	}
 }

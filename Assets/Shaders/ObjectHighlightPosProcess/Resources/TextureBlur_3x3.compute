@@ -1,0 +1,22 @@
+﻿// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel CSMain
+
+Texture2D<float4> Texture;
+RWTexture2D<float4> TextureOut;
+
+[numthreads(16,16,1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+	float4 x1y1 = Texture[id.xy + uint2(-1,-1)];
+	float4 x1y2 = Texture[id.xy + uint2(-1, 0)];
+	float4 x1y3 = Texture[id.xy + uint2(-1, 1)];
+	float4 x2y1 = Texture[id.xy + uint2( 0,-1)];
+	float4 x2y2 = Texture[id.xy]; // centre
+	float4 x2y3 = Texture[id.xy + uint2( 0, 1)];
+	float4 x3y1 = Texture[id.xy + uint2( 1,-1)];
+	float4 x3y2 = Texture[id.xy + uint2( 1, 0)];
+	float4 x3y3 = Texture[id.xy + uint2( 1, 1)];
+
+	TextureOut[id.xy] = (x1y1 + x1y2 + x1y3 + x2y1 + x2y2 + x2y3 + x3y1 + x3y2 + x3y3) / 9.0f;
+}
+
