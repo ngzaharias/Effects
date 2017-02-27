@@ -1,0 +1,18 @@
+﻿// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel CSMain
+
+Texture2D<float4> TextureA;
+Texture2D<float4> TextureB;
+RWTexture2D<float4> TextureOut;
+
+[numthreads(16,16,1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+	float4 textureA = TextureA[id.xy];
+	float4 textureB = TextureB[id.xy];
+	
+	float totalA = step(0.01f, textureA.r + textureA.g + textureA.b + textureA.a);
+	float totalB = step(0.01f, textureB.r + textureB.g + textureB.b + textureB.a);
+	float result = step(1.01f, totalA + totalB);
+	TextureOut[id.xy] = float4(result, 0, 0, 1);
+}
