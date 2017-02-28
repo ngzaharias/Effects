@@ -5,8 +5,6 @@ using UnityEngine;
 [CustomEditor(typeof(LineRenderer_TrailExt))]
 public class LineRenderer_TrailExtEditor : Editor
 {
-	float slider = 0.0f;
-
 	public override void OnInspectorGUI()
 	{
 		base.OnInspectorGUI();
@@ -20,6 +18,6 @@ public class LineRenderer_TrailExtEditor : Editor
 		if (GUILayout.Button("Debug: Infinite Distance") == true)
 			lineRenderer.SetIsInfinite(true);
 
-		lineRenderer.DistancePercentage = slider = EditorGUILayout.Slider(lineRenderer.DistancePercentage, 0.0f, 1.0f);
+		lineRenderer.DistancePercentage = EditorGUILayout.Slider(lineRenderer.DistancePercentage, 0.0f, 1.0f);
 	}
 }
