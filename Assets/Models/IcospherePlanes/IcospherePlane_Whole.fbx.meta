@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 919ffb5eaff92934eaf637b50229a82d
-timeCreated: 1478694296
+guid: 0b6d3849007012a48b7856c1c87a8ea8
+timeCreated: 1488772052
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Icosphere
+    4300000: IcospherePlane_Whole
   materials:
     importMaterials: 0
     materialName: 0
@@ -70,7 +70,7 @@ ModelImporter:
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
-    skeletonHasParents: 0
+    skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 0
   humanoidOversampling: 1

@@ -2,24 +2,18 @@
 {
 	Properties
 	{
-		_MainTex ("Main Texture", 2D) = "white" {}
+		_MainTex ("Texture", 2D) = "white" {}
+		_MainProps("Properties: Height | Falloff", Vector) = (0.5, 40.0, 0.0, 0.0)
 
-		_Height("Height", Range(0.0, 1.0)) = 0.5
-
-		_FillFalloff("Fill Falloff", Range(0.0, 100.0)) = 40.0
-
-		_LineThickness("Line Thickness", Range(0.0, 0.5)) = 0.01
-		_LineFalloff ("Line Falloff", Range (0.0, 100.0) ) = 20.0
-		_LineIntensity ("Line Intensity", Range (0.0, 5.0) ) = 1.5
 		_LineColour ("Line Colour", Color) = (1, 1, 1, 1)
+		_BotColour ("Bottom Colour", Color) = (1, 0, 0, 1)
+		_MidColour ("Middle Colour", Color) = (0, 1, 0, 1)
+		_TopColour ("Top Colour", Color) = (0, 0, 1, 1)
 
-		_ColourA ("Colour A", Color) = (1, 0, 0, 1)
-		_ColourB ("Colour B", Color) = (0, 1, 0, 1)
-		_ColourC ("Colour C", Color) = (0, 0, 1, 1)
-
-		_SpeedA ("Speed A", Vector) = (-0.1, -0.1, 0.0, 0.0)
-		_SpeedB ("Speed B", Vector) = (0.1, -0.1, 0.0, 0.0)
-		_SpeedC ("Speed C", Vector) = (0.0, -0.1, 0.0, 0.0)
+		_LineProps("Line Properties: Thickness | Falloff", Vector) = (0.01, 20.0, 1.0, 0.0)
+		_BotProps("Bottom Properties: Speed X | Speed Y", Vector) = (-0.1, -0.1, 1.0, 0.0)
+		_MidProps("Middle Properties: Speed X | Speed Y", Vector) = ( 0.1, -0.1, 1.0, 0.0)
+		_TopProps("Top Properties: Speed X | Speed Y", Vector) = ( 0.0, -0.1, 1.0, 0.0)
 	}
 	SubShader
 	{
@@ -75,65 +69,57 @@
 			{
 				float4 vertex : SV_POSITION;
 				fixed2 uv : TEXCOORD0;
-				fixed2 uv_a : TEXCOORD1;
-				fixed2 uv_b : TEXCOORD2;
-				fixed2 uv_c : TEXCOORD3;
-				fixed2 uv_d : TEXCOORD4;
-				fixed2 uv_e : TEXCOORD5;
+				fixed2 uv_r : TEXCOORD1;
+				fixed2 uv_g : TEXCOORD2;
+				fixed2 uv_b : TEXCOORD3;
+				fixed2 uv2 : TEXCOORD4;
 			};
 
 			sampler2D _MainTex;
-			sampler2D _LineTex;
+			float4 _MainProps;
 
-			fixed _Height;
-			fixed _FillFalloff;
+			float4 _LineColour;
+			float4 _BotColour;
+			float4 _MidColour;
+			float4 _TopColour;
 
-			fixed _LineThickness;
-			fixed _LineFalloff;
-			fixed _LineIntensity;
-			fixed4 _LineColour;
-
-			fixed4 _ColourA;
-			fixed4 _ColourB;
-			fixed4 _ColourC;
-			float2 _SpeedA;
-			float2 _SpeedB;
-			float2 _SpeedC;
-
+			float4 _LineProps;
+			float4 _BotProps;
+			float4 _MidProps;
+			float4 _TopProps;
+			 
 			v2f vert (appdata v)
 			{
 				v2f o;
 				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.uv = v.uv1;
 
-				o.uv_a = (v.uv1 + _Time * _SpeedA) * 1.0f;
-				o.uv_b = (v.uv1 + _Time * _SpeedB) * 0.5f;
-				o.uv_c = (v.uv1 + _Time * _SpeedC) * 2.0f;
-				o.uv_d = v.uv2;
-				o.uv_e = v.uv2;
-
-				o.uv_d.y += SinWave(o.uv_d.x);
+				o.uv_r = (o.uv + _Time * _BotProps.xy) * 1.0f;
+				o.uv_g = (o.uv + _Time * _MidProps.xy) * 0.5f;
+				o.uv_b = (o.uv + _Time * _TopProps.xy) * 2.0f;
+				o.uv2 = v.uv2 + SinWave(v.uv2.x);
 
 				return o;
 			}
 			
 			fixed4 frag (v2f i) : SV_Target
 			{
-				fixed4 textureA = tex2D(_MainTex, i.uv_a);
-				fixed4 textureB = tex2D(_MainTex, i.uv_b);
-				fixed4 textureC = tex2D(_MainTex, i.uv_c);
+				float4 botTexture = tex2D(_MainTex, i.uv_r);
+				float4 midTexture = tex2D(_MainTex, i.uv_g);
+				float4 topTexture = tex2D(_MainTex, i.uv_b);
 
-				half4 colourA = textureA.r * _ColourA * 5;
-				half4 colourB = textureB.g * _ColourB * 7;
-				half4 colourC = textureC.b * _ColourC * 12;
-				half4 colour = (colourA + colourB) * colourC;
+				float4 botColour = botTexture.r * _BotColour * _BotProps.z;
+				float4 midColour = midTexture.g * _MidColour * _MidProps.z;
+				float4 topColour = topTexture.b * _TopColour * _TopProps.z;
+				float4 colour = (botColour + midColour) * topColour;
 
-				colour += textureB.a * LineMask(i.uv_d.y, _Height, _LineThickness, _LineFalloff) * _LineColour * _LineIntensity;
-				colour.a = FillMask(i.uv_e.y, _Height, _FillFalloff);
+				colour += botTexture.a * LineMask(i.uv2.y, _MainProps.x, _LineProps.x, _LineProps.y) * _LineProps.z * _LineColour;
+				colour.a = FillMask(i.uv2.y, _MainProps.x, _MainProps.y);
 
-				return clamp(colour, 0, 1);
+				return colour;
 			}
 			ENDCG
 		}
 	}
+	CustomEditor "ResourceBubbleEditor"
 }

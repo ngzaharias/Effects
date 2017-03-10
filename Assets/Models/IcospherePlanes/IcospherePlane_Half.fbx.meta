@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 7b747aa23401871409c226e2ff16e2d3
-timeCreated: 1478694296
+guid: 89307003f1edaf24aa1b707a3f54672e
+timeCreated: 1488772388
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Sphere
+    4300000: IcospherePlane_Half
   materials:
     importMaterials: 0
     materialName: 0
@@ -70,7 +70,7 @@ ModelImporter:
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
-    skeletonHasParents: 0
+    skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 0
   humanoidOversampling: 1
