@@ -8,14 +8,13 @@
 
 		_FillFalloff("Fill Falloff", Range(0.0, 100.0)) = 40.0
 
-		_LineTex("Line Mask", 2D) = "white" {}
 		_LineThickness("Line Thickness", Range(0.0, 1.0)) = 0.01
 		_LineFalloff ("Line Falloff", Range (0.0, 100.0) ) = 20.0
 		_LineIntensity ("Line Intensity", Range (0.0, 5.0) ) = 1.5
 
-		_SpeedA ("Speed", Vector) = (-0.1, -0.1, 0.0, 0.0)
-		_SpeedB ("Speed", Vector) = (0.1, -0.1, 0.0, 0.0)
-		_SpeedC ("Speed", Vector) = (0.0, -0.1, 0.0, 0.0)
+		_BotSpeed ("Speed", Vector) = (-0.1, -0.1, 0.0, 0.0)
+		_MidSpeed ("Speed", Vector) = (0.1, -0.1, 0.0, 0.0)
+		_TopSpeed ("Speed", Vector) = (0.0, -0.1, 0.0, 0.0)
 	}
 	SubShader
 	{
@@ -74,12 +73,10 @@
 				fixed2 uv_a : TEXCOORD1;
 				fixed2 uv_b : TEXCOORD2;
 				fixed2 uv_c : TEXCOORD3;
-				fixed2 uv_d : TEXCOORD4;
-				fixed2 uv_e : TEXCOORD5;
+				fixed2 uv2 : TEXCOORD5;
 			};
 
 			sampler2D _MainTex;
-			sampler2D _LineTex;
 
 			fixed _Height;
 			fixed _FillFalloff;
@@ -87,9 +84,9 @@
 			fixed _LineFalloff;
 			fixed _LineIntensity;
 
-			float2 _SpeedA;
-			float2 _SpeedB;
-			float2 _SpeedC;
+			float2 _BotSpeed;
+			float2 _MidSpeed;
+			float2 _TopSpeed;
 
 			v2f vert (appdata v)
 			{
@@ -97,33 +94,23 @@
 				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.uv = v.uv1;
 
-				o.uv_a = (v.uv1 + _Time * _SpeedA) * 1.0f;
-				o.uv_b = (v.uv1 + _Time * _SpeedB) * 0.5f;
-				o.uv_c = (v.uv1 + _Time * _SpeedC) * 2.0f;
-				o.uv_d = v.uv2;
-				o.uv_e = v.uv2;
-
-				o.uv_d.y += SinWave(o.uv_d.x); // A
-				//o.uv_d.y -= _Height; // B
+				o.uv_a = (o.uv + _Time * _BotSpeed) * 1.0f;
+				o.uv_b = (o.uv + _Time * _MidSpeed) * 0.5f;
+				o.uv_c = (o.uv + _Time * _TopSpeed) * 2.0f;
+				o.uv2 = v.uv2 + SinWave(v.uv2.x);
 
 				return o;
 			}
 			
 			fixed4 frag (v2f i) : SV_Target
 			{
-				fixed4 colourA = tex2D(_MainTex, i.uv_a); //.r * _ColourA;
-				fixed4 colourB = tex2D(_MainTex, i.uv_b); //.g * _ColourB;
-				fixed4 colourC = tex2D(_MainTex, i.uv_c); //.b * _ColourC;
-
-				// colour
+				fixed4 colourA = tex2D(_MainTex, i.uv_a);
+				fixed4 colourB = tex2D(_MainTex, i.uv_b);
+				fixed4 colourC = tex2D(_MainTex, i.uv_c);
 				fixed4 colour = (colourA * colourB * 2.0) * colourC * 2.0;
 
-				colour += colourA * LineMask(i.uv_d.y, _Height, _LineThickness, _LineFalloff) * _LineIntensity; // A
-				//colour += colourA * tex2D(_LineTex, i.uv_d) * _LineIntensity; // B
-
-				// mask
-				colour.a = FillMask(i.uv_e.y, _Height, _FillFalloff); // A
-				//colour.a = FillMask(i.uv_e.y, _Height, _FillFalloff); // B
+				colour += colourA * LineMask(i.uv2.y, _Height, _LineThickness, _LineFalloff) * _LineIntensity;
+				colour.a = FillMask(i.uv2.y, _Height, _FillFalloff);
 
 				return colour;
 			}

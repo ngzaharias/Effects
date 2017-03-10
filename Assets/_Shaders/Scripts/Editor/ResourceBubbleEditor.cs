@@ -27,12 +27,14 @@ public class ResourceBubbleEditor : ShaderGUI
 		MaterialProperty _MainProps = ShaderGUI.FindProperty("_MainProps", properties);
 		MaterialProperty _LineProps = ShaderGUI.FindProperty("_LineProps", properties);
 
-		materialEditor.ShaderProperty(_MainTex, "Texture");
+		EditorGUILayout.BeginHorizontal();
+		materialEditor.TexturePropertySingleLine(new GUIContent("Texture"), _MainTex);
+		float mainHeight = EditorGUILayout.Slider(_MainProps.vectorValue.x, 0.0f, 1.0f);
+		EditorGUILayout.EndHorizontal();
 
 		EditorGUILayout.BeginVertical();
 		EditorGUI.indentLevel++;
 		{
-			float mainHeight = EditorGUILayout.Slider(new GUIContent("Main Height"), _MainProps.vectorValue.x, 0.0f, 1.0f);
 			float mainFalloff = EditorGUILayout.Slider(new GUIContent("Main Falloff"), _MainProps.vectorValue.y, 0.0f, 100.0f);
 			float lineThickness = EditorGUILayout.Slider(new GUIContent("Line Thickness"), _LineProps.vectorValue.x, 0.0f, 1.0f);
 			float lineFalloff = EditorGUILayout.Slider(new GUIContent("Line Falloff"), _LineProps.vectorValue.y, 0.0f, 100.0f);
@@ -40,6 +42,8 @@ public class ResourceBubbleEditor : ShaderGUI
 			_MainProps.vectorValue = new Vector4(mainHeight, mainFalloff, _MainProps.vectorValue.z, _MainProps.vectorValue.w);
 			_LineProps.vectorValue = new Vector4(lineThickness, lineFalloff, _LineProps.vectorValue.z, _LineProps.vectorValue.w);
 		}
+		EditorGUI.indentLevel--;
+		EditorGUILayout.EndVertical();
 	}
 
 	void Colour(MaterialEditor materialEditor, MaterialProperty[] properties)
