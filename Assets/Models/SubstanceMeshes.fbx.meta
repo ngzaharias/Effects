@@ -1,0 +1,129 @@
+fileFormatVersion: 2
+guid: 162152e90f70cf84698a24438fbc3de2
+timeCreated: 1520102859
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: _IcospherePlaneA
+    100002: _IcospherePlaneB
+    100004: _SpherePlaneA
+    100006: _SpherePlaneB
+    100008: IcospherePlaneA_Lowpoly
+    100010: IcospherePlaneB
+    100012: SpherePlaneA_CurvedUVs
+    100014: SpherePlaneB_SquaredUVs
+    100016: //RootNode
+    100018: SpherePlaneA
+    400000: _IcospherePlaneA
+    400002: _IcospherePlaneB
+    400004: _SpherePlaneA
+    400006: _SpherePlaneB
+    400008: IcospherePlaneA_Lowpoly
+    400010: IcospherePlaneB
+    400012: SpherePlaneA_CurvedUVs
+    400014: SpherePlaneB_SquaredUVs
+    400016: //RootNode
+    400018: SpherePlaneA
+    2300000: _IcospherePlaneA
+    2300002: _IcospherePlaneB
+    2300004: _SpherePlaneA
+    2300006: _SpherePlaneB
+    2300008: IcospherePlaneA_Lowpoly
+    2300010: IcospherePlaneB
+    2300012: SpherePlaneA_CurvedUVs
+    2300014: SpherePlaneB_SquaredUVs
+    2300016: SpherePlaneA
+    3300000: _IcospherePlaneA
+    3300002: _IcospherePlaneB
+    3300004: _SpherePlaneA
+    3300006: _SpherePlaneB
+    3300008: IcospherePlaneA_Lowpoly
+    3300010: IcospherePlaneB
+    3300012: SpherePlaneA_CurvedUVs
+    3300014: SpherePlaneB_SquaredUVs
+    3300016: SpherePlaneA
+    4300000: IcospherePlaneB
+    4300002: IcospherePlaneA_Lowpoly
+    4300004: SpherePlaneB_SquaredUVs
+    4300006: SpherePlaneA_CurvedUVs
+    4300008: _IcospherePlaneB
+    4300010: _IcospherePlaneA
+    4300012: _SpherePlaneB
+    4300014: _SpherePlaneA
+    4300016: SpherePlaneA
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 0
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

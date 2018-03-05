@@ -1,4 +1,6 @@
-﻿Shader "_Shader/Gameboy" 
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "_Shader/Gameboy" 
 {
 	Properties 
 	{
@@ -54,7 +56,7 @@
 			v2f vert (appdata_img IN)
 			{
 				v2f OUT;
-				OUT.worldPos = mul (UNITY_MATRIX_MVP, IN.vertex);
+				OUT.worldPos = UnityObjectToClipPos (IN.vertex);
 				OUT.screenPos = ComputeScreenPos(IN.vertex);
 				OUT.uv = MultiplyUV (UNITY_MATRIX_TEXTURE0, IN.texcoord.xy);
 				return OUT; 

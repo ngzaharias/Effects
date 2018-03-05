@@ -15,7 +15,7 @@ public class TargetToLineRenderer : MonoBehaviour
 
 	void Update ()
 	{
-		renderer.numPositions = targets.Length;
+		renderer.positionCount = targets.Length;
 		for (int i = 0; i < targets.Length; ++i)
 		{
 			if (targets[i] != null)

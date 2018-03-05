@@ -1,4 +1,6 @@
-﻿Shader "_Shader/PixelArt" 
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "_Shader/PixelArt" 
 {
 	Properties 
 	{
@@ -35,7 +37,7 @@
 			v2f vert (appdata_img IN)
 			{
 				v2f OUT;
-				OUT.pos = mul (UNITY_MATRIX_MVP, IN.vertex);
+				OUT.pos = UnityObjectToClipPos (IN.vertex);
 				OUT.uv = MultiplyUV (UNITY_MATRIX_TEXTURE0, IN.texcoord.xy);
 				return OUT; 
 			}

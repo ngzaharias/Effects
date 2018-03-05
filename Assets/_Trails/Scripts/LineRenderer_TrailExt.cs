@@ -187,7 +187,7 @@ public class LineRenderer_TrailExt : MonoBehaviour
 			float t = (m_distance - firstDistance) / distanceBetween;
 			Vector3 position = Vector3.Lerp(first, second, t);
 
-			cached_lineRenderer.numPositions = index + 2;
+			cached_lineRenderer.positionCount = index + 2;
 			cached_lineRenderer.SetPosition(index + 1, position);
 		}
 	}
@@ -196,7 +196,7 @@ public class LineRenderer_TrailExt : MonoBehaviour
 	{
 		m_distance = (m_isDistanceInfinite) ? float.MaxValue : m_distance;
 
-		cached_lineRenderer.numPositions = m_positions.Count;
+		cached_lineRenderer.positionCount = m_positions.Count;
 		cached_lineRenderer.SetPositions(m_positions.ToArray());
 
 		CullPointsToDistance();

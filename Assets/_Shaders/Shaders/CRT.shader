@@ -1,4 +1,6 @@
-﻿Shader "_Shader/CRT" 
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "_Shader/CRT" 
 {
 	Properties 
 	{
@@ -31,7 +33,7 @@
 			v2f vert (appdata_img v)
 			{
 				v2f OUT;
-				OUT.worldPos = mul (UNITY_MATRIX_MVP, v.vertex);
+				OUT.worldPos = UnityObjectToClipPos (v.vertex);
 				OUT.uv = MultiplyUV (UNITY_MATRIX_TEXTURE0, v.texcoord.xy);
 				OUT.screenPos = ComputeScreenPos(OUT.worldPos);
 				return OUT; 
