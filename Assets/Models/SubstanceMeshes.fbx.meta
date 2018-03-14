@@ -15,6 +15,31 @@ ModelImporter:
     100014: SpherePlaneB_SquaredUVs
     100016: //RootNode
     100018: SpherePlaneA
+    100020: _IcospherePlaneA_Step1
+    100022: _IcospherePlaneA_Step2
+    100024: _IcospherePlaneA_Step3
+    100026: _IcospherePlaneB_Step1
+    100028: _IcospherePlaneB_Step2
+    100030: _IcospherePlaneB_Step3
+    100032: _SpherePlaneA_Step1
+    100034: _SpherePlaneA_Step2
+    100036: _SpherePlaneA_Step3
+    100038: _SpherePlaneB_Step1
+    100040: _SpherePlaneB_Step2
+    100042: _SpherePlaneB_Step3
+    100044: _TriprismPlaneA_Step1
+    100046: _TriprismPlaneA_Step2
+    100048: _TriprismPlaneA_Step3
+    100050: TriprismPlaneA
+    100052: _IcocapsulePlaneB_Step3.001
+    100054: _TriprismPlaneA_Step2.003
+    100056: IcocapsulePlaneA
+    100058: IcocapsulePlaneA_CapL
+    100060: IcocapsulePlaneA_CapM
+    100062: IcocapsulePlaneA_CapR
+    100064: IcocapsulePlaneA_HalfL
+    100066: IcocapsulePlaneA_HalfR
+    100068: TriorismPlaneA
     400000: _IcospherePlaneA
     400002: _IcospherePlaneB
     400004: _SpherePlaneA
@@ -25,6 +50,31 @@ ModelImporter:
     400014: SpherePlaneB_SquaredUVs
     400016: //RootNode
     400018: SpherePlaneA
+    400020: _IcospherePlaneA_Step1
+    400022: _IcospherePlaneA_Step2
+    400024: _IcospherePlaneA_Step3
+    400026: _IcospherePlaneB_Step1
+    400028: _IcospherePlaneB_Step2
+    400030: _IcospherePlaneB_Step3
+    400032: _SpherePlaneA_Step1
+    400034: _SpherePlaneA_Step2
+    400036: _SpherePlaneA_Step3
+    400038: _SpherePlaneB_Step1
+    400040: _SpherePlaneB_Step2
+    400042: _SpherePlaneB_Step3
+    400044: _TriprismPlaneA_Step1
+    400046: _TriprismPlaneA_Step2
+    400048: _TriprismPlaneA_Step3
+    400050: TriprismPlaneA
+    400052: _IcocapsulePlaneB_Step3.001
+    400054: _TriprismPlaneA_Step2.003
+    400056: IcocapsulePlaneA
+    400058: IcocapsulePlaneA_CapL
+    400060: IcocapsulePlaneA_CapM
+    400062: IcocapsulePlaneA_CapR
+    400064: IcocapsulePlaneA_HalfL
+    400066: IcocapsulePlaneA_HalfR
+    400068: TriorismPlaneA
     2300000: _IcospherePlaneA
     2300002: _IcospherePlaneB
     2300004: _SpherePlaneA
@@ -34,6 +84,31 @@ ModelImporter:
     2300012: SpherePlaneA_CurvedUVs
     2300014: SpherePlaneB_SquaredUVs
     2300016: SpherePlaneA
+    2300018: _IcospherePlaneA_Step1
+    2300020: _IcospherePlaneA_Step2
+    2300022: _IcospherePlaneA_Step3
+    2300024: _IcospherePlaneB_Step1
+    2300026: _IcospherePlaneB_Step2
+    2300028: _IcospherePlaneB_Step3
+    2300030: _SpherePlaneA_Step1
+    2300032: _SpherePlaneA_Step2
+    2300034: _SpherePlaneA_Step3
+    2300036: _SpherePlaneB_Step1
+    2300038: _SpherePlaneB_Step2
+    2300040: _SpherePlaneB_Step3
+    2300042: _TriprismPlaneA_Step1
+    2300044: _TriprismPlaneA_Step2
+    2300046: _TriprismPlaneA_Step3
+    2300048: TriprismPlaneA
+    2300050: _IcocapsulePlaneB_Step3.001
+    2300052: _TriprismPlaneA_Step2.003
+    2300054: IcocapsulePlaneA
+    2300056: IcocapsulePlaneA_CapL
+    2300058: IcocapsulePlaneA_CapM
+    2300060: IcocapsulePlaneA_CapR
+    2300062: IcocapsulePlaneA_HalfL
+    2300064: IcocapsulePlaneA_HalfR
+    2300066: TriorismPlaneA
     3300000: _IcospherePlaneA
     3300002: _IcospherePlaneB
     3300004: _SpherePlaneA
@@ -43,6 +118,31 @@ ModelImporter:
     3300012: SpherePlaneA_CurvedUVs
     3300014: SpherePlaneB_SquaredUVs
     3300016: SpherePlaneA
+    3300018: _IcospherePlaneA_Step1
+    3300020: _IcospherePlaneA_Step2
+    3300022: _IcospherePlaneA_Step3
+    3300024: _IcospherePlaneB_Step1
+    3300026: _IcospherePlaneB_Step2
+    3300028: _IcospherePlaneB_Step3
+    3300030: _SpherePlaneA_Step1
+    3300032: _SpherePlaneA_Step2
+    3300034: _SpherePlaneA_Step3
+    3300036: _SpherePlaneB_Step1
+    3300038: _SpherePlaneB_Step2
+    3300040: _SpherePlaneB_Step3
+    3300042: _TriprismPlaneA_Step1
+    3300044: _TriprismPlaneA_Step2
+    3300046: _TriprismPlaneA_Step3
+    3300048: TriprismPlaneA
+    3300050: _IcocapsulePlaneB_Step3.001
+    3300052: _TriprismPlaneA_Step2.003
+    3300054: IcocapsulePlaneA
+    3300056: IcocapsulePlaneA_CapL
+    3300058: IcocapsulePlaneA_CapM
+    3300060: IcocapsulePlaneA_CapR
+    3300062: IcocapsulePlaneA_HalfL
+    3300064: IcocapsulePlaneA_HalfR
+    3300066: TriorismPlaneA
     4300000: IcospherePlaneB
     4300002: IcospherePlaneA_Lowpoly
     4300004: SpherePlaneB_SquaredUVs
@@ -52,6 +152,31 @@ ModelImporter:
     4300012: _SpherePlaneB
     4300014: _SpherePlaneA
     4300016: SpherePlaneA
+    4300018: TriprismPlaneA
+    4300020: _TriprismPlaneA_Step3
+    4300022: _TriprismPlaneA_Step2
+    4300024: _TriprismPlaneA_Step1
+    4300026: _IcospherePlaneA_Step3
+    4300028: _SpherePlaneA_Step2
+    4300030: _SpherePlaneB_Step2
+    4300032: _IcospherePlaneB_Step1
+    4300034: _IcospherePlaneB_Step2
+    4300036: _IcospherePlaneA_Step2
+    4300038: _IcospherePlaneA_Step1
+    4300040: _SpherePlaneA_Step1
+    4300042: _SpherePlaneB_Step1
+    4300044: _IcospherePlaneB_Step3
+    4300046: _SpherePlaneB_Step3
+    4300048: _SpherePlaneA_Step3
+    4300050: _IcocapsulePlaneB_Step3.001
+    4300052: _TriprismPlaneA_Step2.003
+    4300054: IcocapsulePlaneA
+    4300056: IcocapsulePlaneA_CapM
+    4300058: IcocapsulePlaneA_CapR
+    4300060: IcocapsulePlaneA_CapL
+    4300062: IcocapsulePlaneA_HalfR
+    4300064: IcocapsulePlaneA_HalfL
+    4300066: TriorismPlaneA
   materials:
     importMaterials: 0
     materialName: 0

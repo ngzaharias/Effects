@@ -8,8 +8,8 @@
 
 	SubShader
 	{
-		Tags{ "RenderType" = "Transparent" "IgnoreProjector" = "True" "Queue" = "Transparent" }
-		ZWrite Off
+		Tags { "RenderType" = "Opaque" }
+		ZWrite On
 		Blend One OneMinusSrcAlpha
 		Cull Off
 		Lighting Off
@@ -50,7 +50,7 @@
 				v2f o;
 				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.normal = UnityObjectToWorldNormal(v.normal);
-				o.viewDir = normalize(ObjSpaceViewDir(v.vertex));
+				o.viewDir = -UNITY_MATRIX_V[2].xyz;
 				o.uv = v.uv;
 
 				return o;
@@ -60,7 +60,8 @@
 			{
 				fixed4 colour = tex2D(_Main, i.uv);
 
-				colour.a *= Fresnel(i.viewDir, i.normal, _Exponent);
+				colour.rgb *= Fresnel(-i.viewDir, i.normal, _Exponent);
+				colour.a = 1.0;
 				return colour;
 			}
 

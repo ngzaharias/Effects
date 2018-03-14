@@ -18,6 +18,10 @@
 		_DataB("Sample B Data", Vector) = (0.0, 0.0, 0.5, 1.0)
 		_DataC("Sample C Data", Vector) = (0.0, 0.0, 2.0, 1.0)
 		_DataD("Sample D Data", Vector) = (0.0, 0.0, 1.0, 1.0)
+
+		[Space(10)]
+
+		_ShadowExponent("Shadow Exponent", Range(0.0, 10.0)) = 2.0
 	}
 
 	SubShader
@@ -47,7 +51,6 @@
 			{
 				float4 vertex : SV_POSITION;
 				float3 normal : NORMAL;
-				float3 viewDir : TEXCOORD5;
 				fixed2 uv : TEXCOORD0;
 				fixed2 uv_a : TEXCOORD1;
 				fixed2 uv_b : TEXCOORD2;
@@ -66,6 +69,7 @@
 			float4 _DataB;
 			float4 _DataC;
 			float4 _DataD;
+			float _ShadowExponent;
 
 			half Fresnel(float3 viewDir, float3 normal, float exponent)
 			{
@@ -76,6 +80,7 @@
 			{
 				v2f o;
 				o.vertex = UnityObjectToClipPos(v.vertex);
+				o.normal = UnityObjectToWorldNormal(v.normal);
 				o.uv = v.uv;
 
 				// xy	= direction & speed
@@ -86,9 +91,6 @@
 				o.uv_b = (o.uv + _Time * -_DataB.xy) * _DataB.z;
 				o.uv_c = (o.uv + _Time * -_DataC.xy) * _DataC.z;
 				o.uv_d = (o.uv + _Time * -_DataD.xy) * _DataD.z;
-
-				o.normal = UnityObjectToWorldNormal(v.normal);
-				o.viewDir = normalize(ObjSpaceViewDir(v.vertex));
 
 				return o;
 			}
@@ -119,6 +121,10 @@
 				// particle colours
 				colour.rgb += _ColourParticlesA * channelC.b * channelC.b * _DataC.w;
 				colour.rgb += _ColourParticlesB * channelD.a * channelD.a * _DataD.w;
+
+				// shadow
+				float3 viewDir = -UNITY_MATRIX_V[2].xyz;
+				colour.rgb *= Fresnel(-viewDir, i.normal, _ShadowExponent);
 
 				return colour;
 			}
